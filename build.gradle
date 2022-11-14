@@ -1,12 +1,19 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
 group 'com.github.simercher'
 version '1.0-SNAPSHOT'
 
+compileJava.options.encoding = 'UTF-8'
+
 repositories {
     mavenCentral()
+}
+
+application {
+    mainClassName 'com.github.simercher.Main'
 }
 
 dependencies {
