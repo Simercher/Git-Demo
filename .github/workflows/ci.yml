@@ -1,4 +1,4 @@
-name: Workflow for auto testing
+name: Workflow for auto testing and generating coverage report
 on: [ push, pull_request ]
 jobs:
   run:
@@ -10,7 +10,7 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 18
-      - name: Install dependencies, run tests
+      - name: Install dependencies, run tests, and collect coverage
         run: gradle build
-
-
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
